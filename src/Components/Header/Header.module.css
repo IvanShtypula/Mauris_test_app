@@ -1,3 +1,31 @@
-.header {
+.header { 
+  background-color: rgb(245, 245, 245);
   height: 60px;
+  width: 100%;
+  padding-top: 30px;
+  position: sticky;
+  z-index: 1; 
+  top: 0;
+  margin-bottom: 7%;
+  border-bottom: 2px solid rgb(233, 233, 233);
+}
+
+.header__title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  text-align: center;
+}
+
+.header__goback_btn {
+  position: absolute;
+  bottom: 6px;
+  left: 20px;
+  border: none;
+  width: 20px;
+  height: 32px;
+  background-image: url("../../helpers/img/arrowhead.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  outline: none;
 }

@@ -9,7 +9,6 @@ export const getScheduleOperation = (date) => async (dispatch) => {
       method: "get",
       url: `http://api.tvmaze.com/schedule?country=US&date=${date}`,
     });
-    // console.log(data);
     dispatch(getSchedule(data));
   } catch (error) {
     console.log(error);

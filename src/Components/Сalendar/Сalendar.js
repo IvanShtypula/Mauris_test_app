@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import Calendar from "react-calendar";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
+import "moment/locale/ru";
 
 import { getScheduleOperation } from "../../redux/operations/scheduleOperations.js";
 import { getDate } from "../../redux/actions/dateAction";
@@ -15,26 +16,33 @@ const Сalendar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [date, setDate] = useState(new Date());
+  const [date, setLabelDate] = useState(new Date()); 
 
   const onChange = (currentDate) => {
-    // moment.locale("ru");
     const fomatDateForRedux = moment(currentDate).format("DD MMMM YYYY");
     dispatch(getDate(fomatDateForRedux));
 
-    const formatedDateForFetch = moment(currentDate).format("YYYY-MM-DD");
-    dispatch(getScheduleOperation(formatedDateForFetch));
-    history.push("/schedule")
-  };
+    const formatedDateForRequest = moment(currentDate).format("YYYY-MM-DD");
+    dispatch(getScheduleOperation(formatedDateForRequest));
+    history.push("/schedule");
+  }; 
   return (
     <div className={css.home}>
-      <img className={css.home__img} src="../../helpers/img/main.png" width="200"/>
+      <div className={css.home__img}></div>
+      <p className={css.home__instruction}>
+        Для получения списка сериалов, пожалуйста, выберите необходимый месяц и
+        день.
+      </p>
       <Calendar
         className={css.home__calendar}
-        onChange={onChange}        
+        onChange={onChange}             
         value={date}
         next2Label={null}
-        prev2Label={null}
+        prev2Label={null}      
+        navigationLabel={({ date }) =>
+          `${moment(date).format("MMMM")}`.charAt(0).toUpperCase() +
+          `${moment(date).format("MMMM")}`.slice(1)
+        }
       />
     </div>
   );

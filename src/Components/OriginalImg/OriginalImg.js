@@ -1,4 +1,5 @@
 import React from "react";
+
 import css from "./OriginalImg.module.css";
 
 const originalImg = ({ originalImg, setImgToogler }) => {
@@ -6,14 +7,14 @@ const originalImg = ({ originalImg, setImgToogler }) => {
     setImgToogler((state) => !state);
   };
   return (
-    // <div className={css.wrapper}>
+    <>  
     <img
-      className={css.wrapper}
+      className={css.image}
       src={`${originalImg}`}
-      alt=""
-      onClick={handlerClose}
+      alt=""    
     />
-    // </div>
+    <div className={css.overlay} onClick={handlerClose}></div>
+  </>
   );
 };
 

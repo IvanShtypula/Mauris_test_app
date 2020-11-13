@@ -12,7 +12,7 @@ const EpisodesList = ({ episodesToRender }) => {
   const booleanForIn = !!episodesToRender;
   return (
     <div className={css.list__wrapper}>
-      <h3>{currentDate}</h3>
+      <h3 className={css.list__date}>{currentDate}</h3>
       <TransitionGroup component="ul" className={css.list}>
         {episodesToRender.map((item) => (
           <CSSTransition

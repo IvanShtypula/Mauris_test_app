@@ -1,6 +1,24 @@
 .home__calendar {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: auto;
+}
+
+.home__img{ 
+  height: 30vw;
+  margin: 0 auto;
+  background-image: url("../../helpers/img/main.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 9%;
+}
+
+.home__instruction{
+  padding: 0 30px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif; 
+  color: rgb(51, 51, 51);
+  font-weight: 600;
 }

@@ -1,3 +1,17 @@
-.list__wrapper{
-  /* position: relative; */
+.list__date{
+  text-align: center;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(51, 51, 51);
+  margin-bottom: 30px;
 }
+
+.list__date::after{
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: rgb(233, 233, 233);
+  margin-top: 20px;
+}
+
