@@ -7,7 +7,7 @@ export const getScheduleOperation = (date) => async (dispatch) => {
     dispatch(loaderToggleAction());
     const { data } = await axios({
       method: "get",
-      url: `http://api.tvmaze.com/schedule?country=US&date=${date}`,
+      url: `https://api.tvmaze.com/schedule?country=US&date=${date}`,
     });
     dispatch(getSchedule(data));
   } catch (error) {
