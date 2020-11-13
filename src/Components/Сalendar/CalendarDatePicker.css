@@ -33,6 +33,11 @@
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   padding: 0.65em 0.5em;
+  border-top: 1px solid rgba(208, 212, 217, 0.8);
+}
+
+.react-calendar__tile:not(:nth-child(7n + 1)) {
+  border-left: 1px solid rgba(208, 212, 217, 0.8);
 }
 
 .react-calendar .react-calendar__tile--active {
@@ -43,8 +48,4 @@
 
 .react-calendar .react-calendar__month-view__days__day--neighboringMonth {
   color: rgb(112, 117, 122);
-}
-
-.react-calendar .react-calendar__month-view__days__day--weekend {
-  color: rgb(241, 52, 109);
 }
