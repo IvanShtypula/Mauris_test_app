@@ -36,7 +36,7 @@ const Сalendar = () => {
       <Calendar
         className={css.home__calendar}
         onChange={onChange}             
-        value={date}
+        value={date}              
         next2Label={null}
         prev2Label={null}      
         navigationLabel={({ date }) =>

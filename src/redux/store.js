@@ -1,14 +1,33 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { schedule } from "../redux/reducers/scheduleReducer";
-import { date } from "../redux/reducers/dateReducer";
-import { loader } from "../redux/reducers/loaderReduser";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import storage from "redux-persist/lib/storage";
+import thunk from "redux-thunk"; 
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import { rootReducer } from "./reducers/root";
 
-const store = configureStore({
-  reducer: {
-    schedule: schedule,
-    date: date,
-    loader: loader,
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const defaultMiddleware = getDefaultMiddleware({
+  serializableCheck: {
+    ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
   },
 });
 
+const store = configureStore({
+  reducer: persistReducer(persistConfig, rootReducer),
+  middleware: [...defaultMiddleware, thunk],
+});
+
+export const persistor = persistStore(store);
 export default store;
