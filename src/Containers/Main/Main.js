@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import Header from "../../Components/Header/Header";
 import Сalendar from "../../Components/Сalendar/Сalendar";
@@ -18,8 +18,7 @@ const Main = () => {
       {!loader && <Spinner />}
       <Switch>
         <Route exact path="/" component={Сalendar} />
-        {loader && <Route exact path="/schedule" component={Schedule} />}
-        <Redirect to="/schedule"/>
+        {loader && <Route exact path="/schedule" component={Schedule} />}        
       </Switch>
     </div>
   );
