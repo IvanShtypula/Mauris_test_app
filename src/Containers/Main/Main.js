@@ -4,7 +4,6 @@ import { Switch, Route } from "react-router-dom";
 
 import Header from "../../Components/Header/Header";
 import Сalendar from "../../Components/Сalendar/Сalendar";
-
 import Schedule from "../../Components/Schedule/Schedule";
 import { Spinner } from "../../Components/Spinner/Spinner";
 
@@ -18,7 +17,7 @@ const Main = () => {
       {!loader && <Spinner />}
       <Switch>
         <Route exact path="/" component={Сalendar} />
-        {loader && <Route exact path="/schedule" component={Schedule} />}        
+        {loader && <Route exact path="/schedule" component={Schedule} />}
       </Switch>
     </div>
   );
